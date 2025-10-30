@@ -1,6 +1,7 @@
-let a = parseInt(prompt("a = ?"));
-let b = parseInt(prompt("b = ?"));
+var a = parseInt(prompt("a = ?"));
+var b = parseInt(prompt("b = ?"));
 
-let sum = a + b;
-
-document.getElementById("output").textContent = "The sum is: " + sum;
+newA = b;
+newB = a;
+document.getElementById("output").textContent =
+  "After swapping a = " + newA + " and b = " + newB;
