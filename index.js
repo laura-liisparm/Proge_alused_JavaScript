@@ -983,31 +983,385 @@ function displayPage(result){
 
 */
 
-// Camel to titel
+//            forEach() = method used to iterate over the elements      !!!!!!!!!!!!!!!!
+/*                        of an array and apply a specified function (callback) 
+                      to each element
+                      
+                      array.forEach(callback)
+                      element, index, array are provided
+                      works only with arrays
+                      */
+/*
+let numbers = [1, 2, 3, 4, 5];
 
-function camelToTitleCase(words) {
-  words = words.trim().charAt(0).toUpperCase() + words.trim().slice(1);
-  let i = 0;
-  words = words.split("");
-  for (i; i < words.length; i += 1) {
-    if (
-      i > 0 &&
-      i < words.length - 1 &&
-      words[i] === words[i].toUpperCase() &&
-      (words[i - 1] != words[i - 1].toUpperCase() ||
-        words[i + 1] != words[i + 1].toUpperCase())
-    ) {
-      words.splice(i, 0, " ");
-      i += 1;
-    } else {
-    }
-  }
-  words = words.join("");
-  console.log(words);
+numbers.forEach(square);
+numbers.forEach(display);
+
+function display(element) {
+  console.log(element);
 }
 
-camelToTitleCase("insertHTML");
-camelToTitleCase("insertAdjacentHTML");
-camelToTitleCase("firstHTMLElement");
-camelToTitleCase("releaseDate");
-camelToTitleCase("");
+function triple(element, index, array) {
+  array[index] = element * 3;
+}
+
+function square(element,index,array){
+  array[index]=Math.pow(element,2);
+}
+*/
+
+/*
+let fruits = ["apple", "orange", "banana", "coconut"];
+
+fruits.forEach(UpperCase);
+fruits.forEach(display);
+fruits.forEach(lowerCase);
+fruits.forEach(display);
+fruits.forEach(capitalize);
+fruits.forEach(display);
+
+function UpperCase(element, index, array) {
+  array[index] = element.toUpperCase();
+}
+function lowerCase(element, index, array) {
+  array[index] = element.toLowerCase();
+}
+
+function capitalize(element, index, array) {
+  array[index] = element.charAt(0).toUpperCase() + element.slice(1);
+}
+
+function display(element) {
+  console.log(element);
+}
+*/
+
+//                .map() = accepts a callback and applies that function. !!!!!!!!!!!!!!
+//                         to each element of an array, then return a new array
+
+/*
+const numbers = [1,2,3,4,5,6];
+
+const squares = numbers.map(square);
+const cubes = numbers.map(cube);
+
+console.log(squares);
+console.log(cubes);
+
+function square(element){
+  return Math.pow(element, 2)
+}
+function cube(element){
+  return Math.pow(element, 3)
+}
+*/
+
+/*
+const students = ["Spongebob", "Patrick", "Squidward", "Sandy"];
+const studentsUpper = students.map(upperCase);
+const studentLower = students.map(lowerCase);
+
+function upperCase(element) {
+  return element.toUpperCase();
+}
+function lowerCase(element) {
+  return element.toLowerCase();
+}
+
+console.log(studentsUpper);
+console.log(studentLower);
+*/
+
+/*
+const dates = ["2024-1-10", "2025-2-20", "2026-3-30"];
+const formattedDates = dates.map(formatDates);
+
+function formatDates(elements) {
+  const parts = elements.split("-");
+  return `${parts[2]}.${parts[1]}.${parts[0]}`;
+}
+
+console.log(formattedDates);
+console.log(dates.map(formatDates));
+
+console.log("2024-1-10".split("-"));
+*/
+
+//            .filter() = creates a new array by filtering out elements !!!!!!!!!!!!!
+
+/*
+
+let numbers = [1,2,3,4,5,6,7];
+let evenNums = numbers.filter(isEven);
+let oddNums = numbers.filter(isOdd);
+
+
+function isEven(element){
+  return element % 2 === 0;
+}
+function isOdd(element){
+  return element % 2 !== 0;
+}
+
+
+
+console.log(evenNums);
+console.log(oddNums);
+*/
+/*
+const ages=[16,17,18,18,19,20,60];
+let adult=ages.filter(isAdult);
+let children=ages.filter(isChild);
+
+function isAdult(elements){
+  return elements >=18 && !isNaN(elements);
+}
+
+function isChild(elements){
+  return elements <18 && !isNaN(elements);
+}
+
+
+console.log(adult);
+
+console.log(children);
+*/
+
+/*
+const words=["apple", "orange", "banana", "kiwi", 
+  "pomegranate","coconut"]
+
+let small = words.filter(getShortWords);
+let long = words.filter(getLongWords);
+
+  function getShortWords(elements){
+    return elements.length <=6;
+  }  
+  console.log(small);
+
+  function getLongWords(elements){
+    return elements.length >=6;
+  }
+  console.log(long);      //  long ei töötanud
+*/
+
+// .reduce() = reduces the elements of an array to a single value !!!!!!!!
+//              .reduce(accumulator, element, index, array)
+
+/*
+
+const prices = [5,30,10,25,15,20];
+
+const total = prices.reduce(sum);
+
+console.log(`${total}`);
+
+function sum( accumulator, element){
+return accumulator + element;
+}
+
+*/
+
+/*
+const grades = [75,50,90,80,65,95];
+
+
+const maximum = grades.reduce(getMax);
+
+function getMax(accumulator,element){
+  return Math.max(accumulator,element);
+}
+
+console.log(maximum);
+
+const minimum = grades.reduce(getMin);
+
+function getMin(accumulator,element){
+  return Math.min(accumulator,element);
+}
+
+console.log(minimum);
+*/
+
+//    function declaration = define a reusable block of code            !!!!!!!!!!!
+/*                          that performs a specific task
+
+old version--
+function hello(){
+console.log("Hello!")
+}
+
+      function expressions = a way to define functions as valuse or variables !!!!!!!!
+
+*/
+/*
+const hello = function(){
+  console.log("Hello!");
+}
+
+hello();
+
+setTimeout(hello,3000);
+*/
+
+/*
+setTimeout(function(){
+  console.log("Hello!")},3000);
+
+*/
+/*
+const numbers =[1,2,3,4,5,6];
+const squares = numbers.map(square);
+
+console.log(squares);
+
+function square(element){
+  return Math.pow(element,2);
+}
+*/
+/*
+const numbers =[1,2,3,4,5,6];
+const squares = numbers.map(function(element){
+  return Math.pow(element,3);
+});
+
+console.log(squares);
+*/
+
+//              arrow functions = a concise way to write function expressions !!!!!!!!!!!
+/*                                good for simple functions that you use only once
+                                  (parameters) = > some code
+
+
+*/
+/*
+function hello(){
+  console.log("Hello");
+}
+
+hello();
+*/
+/*
+const hello = function(){
+  console.log("Hello");
+}
+
+hello();
+*/
+
+//const hello = () => console.log("Hello");
+
+// if more than 1 row then needs curly braces
+/*
+const hello = () => {console.log
+("Hello");
+}
+hello();
+*/
+
+/*
+const hello = (name,age) => {console.log(`Hello ${name}`)
+console.log(`You are ${age} old`)};
+
+hello("Bro",25);
+*/
+/*
+setTimeout(hello, 3000);
+function hello(){
+  console.log("Hello");
+}
+*/
+/*
+setTimeout(function(){
+  console.log("Hello");
+},3000);
+*/
+
+/*
+setTimeout( () => console.log("Hello"),3000);
+*/
+/*
+const numbers = [1, 2, 3, 4, 5, 6];
+
+const squares = numbers.map((element) => Math.pow(element, 2));
+
+console.log(squares);
+*/
+
+//              Object = A collection of related properties and/or methods    !!!!!!!
+/*                      Can represent real word object (people, products, places)
+                        object={key:value,function()}
+*/
+
+/*
+const person1 ={
+  firstName: "Spongebob",
+  lastName: "Squarepants",
+  age:30,
+  isEmployed:true,
+  sayHello:function(){console.log("Hi! I am Spongebob!")},
+  sayBye:function(){console.log("Goodbye")},
+  eat:function(){console.log("I am eating a Krabby Patty")}
+}
+
+console.log(person1.firstName);
+console.log(person1.lastName);
+console.log(person1.age);
+console.log(person1.isEmployed);
+
+
+const person2 ={
+  firstName: "Patrick",
+  lastName: "Star",
+  age:42,
+  isEmployed:false,
+  sayHello:function(){console.log("Hey! I'm Patrick...")},
+  sayBye:function(){console.log("Bye...")},
+  eat:function(){console.log("I am eating roast beef, chicken and pizza")}
+}
+
+console.log(person2.firstName);
+console.log(person2.lastName);
+console.log(person2.age);
+console.log(person2.isEmployed);
+
+person1.sayHello();
+person2.eat();
+
+
+*/
+
+//          this = reference to the object where TIHS is used       !!!!!!!!!!!!
+/*                  (the object depends on the immediate context)
+                    person.name = this.name
+                    Does not work with arrow functions
+                  */
+
+/*                   
+const person1 = {
+  firstName: "Spongebob",
+  lastName: "Squarepants",
+  age: 30,
+  isEmployed: true,
+  favFood:"hamburgers",
+  sayHello: function () {
+    console.log(`Hi! I am ${this.firstName}`)
+  },
+  fav: function () {
+    console.log(`Hi! I am ${this.favFood}`)
+  },
+  sayBye: function () {
+    console.log("Goodbye");
+  },
+  eat: function () {
+    console.log("I am eating a Krabby Patty");
+  },
+};
+
+person1.sayHello();
+person1.fav();
+*/
+
+//          constructor = special method for defining the       !!!!!!!!!!!!!!!!
+/*                      properties and methods of objects
+ */
